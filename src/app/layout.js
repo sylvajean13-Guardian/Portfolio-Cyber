@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  metadataBase: new URL("https://tondomaine.com"), // ⚠️ remplace par ton vrai domaine une fois déployé
+  metadataBase: new URL("https://portfolio-cyber-gamma.vercel.app/"), // ⚠️ remplace par ton vrai domaine une fois déployé
   title: {
     default: "Jean Daniel Sylva Ossibouyen | Ingénieur Cybersécurité SOC · SIEM · IA",
     template: "%s | Jean Daniel Sylva Ossibouyen",

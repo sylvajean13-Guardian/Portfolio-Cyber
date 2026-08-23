@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://tondomaine.com/sitemap.xml",
+    sitemap: "https://portfolio-cyber-gamma.vercel.app/sitemap.xml",
   };
 }
