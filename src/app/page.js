@@ -53,7 +53,7 @@ export default function Home() {
       <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <a href="#" className="text-xl font-bold tracking-tight">
-            JEAN DANIEL OSSIBOUYEN<span className="text-blue-500">.</span>
+            JEAN DANIEL SYLVA OSSIBOUYEN<span className="text-blue-500">.</span>
           </a>
 
           <div className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
