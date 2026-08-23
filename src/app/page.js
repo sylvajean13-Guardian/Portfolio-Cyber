@@ -105,7 +105,7 @@ export default function Home() {
 </div>
 
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">
-              Ingénieur SSI | Réseau & Télécom | IA appliquée à la Cybersécurité Défensive | SOC · SIEM · SOAR | Gestion des risques SSI 
+              SOC · SIEM · Threat Detection · AI · Security Automation
             </p>
 
             <h1 className="max-w-4xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
