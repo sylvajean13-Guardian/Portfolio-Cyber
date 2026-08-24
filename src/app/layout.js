@@ -1,5 +1,5 @@
 import "./globals.css";
-
+import { LanguageProvider } from "@/context/LanguageContext";
 export const metadata = {
   metadataBase: new URL("https://portfolio-cyber-gamma.vercel.app/"), // ⚠️ remplace par ton vrai domaine une fois déployé
   title: {
@@ -58,7 +58,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

@@ -2,20 +2,16 @@
 
 :root {
   color-scheme: dark;
-}
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: #020617;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-::selection {
-  background: rgba(37, 99, 235, 0.8);
-  color: white;
+  /* Design tokens — cahier des charges V3 */
+  --background: #020617;
+  --surface: #0f172a;
+  --primary: #2563eb;
+  --secondary: #38bdf8;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --border-color: #1e293b;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --critical: #ef4444;
 }
