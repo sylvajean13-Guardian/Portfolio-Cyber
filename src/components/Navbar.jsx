@@ -2,15 +2,41 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, Sun, Moon } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { siteConfig, navLinks, socials } from "@/data/portfolio";
+import { siteConfig, socials } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
+import { useTheme } from "@/context/ThemeContext";
+
+const navLinksContent = {
+  fr: [
+    { label: "Accueil", href: "#home" },
+    { label: "À propos", href: "#about" },
+    { label: "Expertise", href: "#skills" },
+    { label: "Projets", href: "#projects" },
+    { label: "Labs", href: "#labs" },
+    { label: "Expérience", href: "#experience" },
+    { label: "Certifications", href: "#certifications" },
+    { label: "Contact", href: "#contact" },
+  ],
+  en: [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Expertise", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Labs", href: "#labs" },
+    { label: "Experience", href: "#experience" },
+    { label: "Certifications", href: "#certifications" },
+    { label: "Contact", href: "#contact" },
+  ],
+};
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { language, toggleLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
+  const navLinks = navLinksContent[language];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -49,7 +75,15 @@ export default function Navbar() {
           </div>
 
           {/* Desktop actions */}
-          <div className="hidden items-center gap-4 lg:flex">
+          <div className="hidden items-center gap-3 lg:flex">
+            <button
+              onClick={toggleTheme}
+              aria-label="Changer de thème"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--muted)] transition hover:border-[var(--primary)]/40 hover:text-[var(--text)]"
+            >
+              {theme === "light" ? <Moon size={15} /> : <Sun size={15} />}
+            </button>
+
             <button
               onClick={toggleLanguage}
               aria-label="Changer de langue"
@@ -115,13 +149,21 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={closeMobile}
-                  className="rounded-lg px-3 py-3 text-[var(--muted)] transition hover:bg-white/5 hover:text-[var(--text)]"
+                  className="rounded-lg px-3 py-3 text-[var(--muted)] transition hover:bg-black/5 hover:text-[var(--text)]"
                 >
                   {link.label}
                 </a>
               ))}
 
-              <div className="mt-3 flex items-center gap-5 border-t border-[var(--border-color)] px-3 pt-4">
+              <div className="mt-3 flex items-center gap-4 border-t border-[var(--border-color)] px-3 pt-4">
+                <button
+                  onClick={toggleTheme}
+                  aria-label="Changer de thème"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--muted)]"
+                >
+                  {theme === "light" ? <Moon size={15} /> : <Sun size={15} />}
+                </button>
+
                 <button
                   onClick={toggleLanguage}
                   className="rounded-full border border-[var(--border-color)] px-3 py-1.5 text-xs font-semibold text-[var(--muted)]"

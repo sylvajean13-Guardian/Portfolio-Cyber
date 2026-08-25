@@ -29,6 +29,7 @@ import CaseStudy from "@/components/CaseStudy";
 import AttackScenarios from "@/components/AttackScenarios";
 import DetectionPipeline from "@/components/DetectionPipeline";
 import SecurityLab from "@/components/SecurityLab";
+import { useLanguage } from "@/context/LanguageContext";
 const skills = [
   {
     icon: ShieldCheck,
@@ -54,7 +55,7 @@ const skills = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-h-screen bg-[var(--background)] text-[var(--text)]">
       <ScrollProgress />
       <CursorGlow />
 
@@ -91,23 +92,29 @@ export default function Home() {
       <Contact />
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 px-6 py-8">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-slate-500 md:flex-row">
-          <p>© 2026 Daniel Sylva. Tous droits réservés.</p>
-          <p>Cybersecurity · SOC · SIEM · AI</p>
-        </div>
-      </footer>
+      <FooterSection />
     </main>
   );
 }
 
-function SecurityNode({ icon, label, position }) {
+function FooterSection() {
+  const { language } = useLanguage();
+  const text = {
+    fr: { tagline: "Ingénieur Cybersécurité", rights: "Tous droits réservés." },
+    en: { tagline: "Cybersecurity Engineer", rights: "All rights reserved." },
+  };
+  const t = text[language];
+
   return (
-    <div
-      className={`absolute ${position} flex items-center gap-2 rounded-xl border border-blue-500/20 bg-slate-950/80 px-4 py-3 text-xs text-slate-300 shadow-xl backdrop-blur-xl`}
-    >
-      <span className="text-blue-400">{icon}</span>
-      {label}
-    </div>
+    <footer className="border-t border-[var(--border-color)] px-6 py-8">
+      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-[var(--muted)] md:flex-row">
+        <p>
+          Daniel Sylva — {t.tagline}
+          <span className="mx-2 text-[var(--border-color)]">|</span>
+          © 2026. {t.rights}
+        </p>
+        <p>SOC · SIEM · Threat Detection · AI</p>
+      </div>
+    </footer>
   );
 }

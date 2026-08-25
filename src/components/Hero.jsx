@@ -70,8 +70,9 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden px-6 pt-24"
     >
-      <div className="absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-[var(--primary)]/20 blur-[120px]" />
+      <div className="absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-[var(--primary)]/10 blur-[120px]" />
       <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[var(--secondary)]/10 blur-[140px]" />
+      <div className="absolute right-1/3 top-0 h-56 w-56 rounded-full bg-[var(--accent-amber)]/10 blur-[100px]" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
         {/* LEFT */}
@@ -109,7 +110,7 @@ export default function Hero() {
             <a
               href={socials.cv}
               download
-              className="flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 font-semibold text-[var(--text)] transition hover:border-[var(--primary)] hover:text-[var(--secondary)]"
+              className="flex items-center gap-2 rounded-full border border-black/10 px-6 py-3 font-semibold text-[var(--text)] transition hover:border-[var(--primary)] hover:text-[var(--secondary)]"
             >
               <Download size={18} />
               {t.ctaCV}

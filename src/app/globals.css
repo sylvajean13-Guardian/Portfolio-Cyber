@@ -1,17 +1,50 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
+
+  --background: #ffffff;
+  --surface: #f8fafc;
+  --primary: #2563eb;
+  --secondary: #16a34a;
+  --accent-amber: #f59e0b;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border-color: #e2e8f0;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --critical: #dc2626;
+}
+
+.dark {
   color-scheme: dark;
 
-  /* Design tokens — cahier des charges V3 */
-  --background: #020617;
-  --surface: #0f172a;
-  --primary: #2563eb;
-  --secondary: #38bdf8;
-  --text: #f8fafc;
+  --background: #0b1120;
+  --surface: #111827;
+  --primary: #3b82f6;
+  --secondary: #22c55e;
+  --accent-amber: #fbbf24;
+  --text: #f1f5f9;
   --muted: #94a3b8;
-  --border-color: #1e293b;
+  --border-color: #1f2937;
   --success: #22c55e;
-  --warning: #f59e0b;
-  --critical: #ef4444;
+  --warning: #fbbf24;
+  --critical: #f87171;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--text);
 }

@@ -78,7 +78,7 @@ export default function AttackScenarios() {
                 <div className="mb-3 flex items-start justify-between gap-3">
                   <div>
                     <h3 className="font-semibold text-[var(--text)]">{s.technique}</h3>
-                    <span className="mt-1 inline-block rounded-full bg-white/5 px-2 py-0.5 text-[10px] font-mono text-[var(--muted)]">
+                    <span className="mt-1 inline-block rounded-full bg-black/5 px-2 py-0.5 text-[10px] font-mono text-[var(--muted)]">
                       {s.id}
                     </span>
                   </div>
