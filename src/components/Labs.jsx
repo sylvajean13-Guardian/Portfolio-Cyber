@@ -10,13 +10,13 @@ const content = {
     title: "Labs & environnements",
     lab1Title: "Laboratoire SOC virtualisé — Mémoire SFM Technologies",
     lab1Description: "Environnement de 5 machines virtuelles interconnectées (VMware, réseau NAT isolé 192.168.56.0/24) reproduisant un système d'information d'entreprise, utilisé pour simuler 12 techniques d'attaque MITRE ATT&CK et mesurer l'apport des agents Wazuh.",
-    tableHeaders: { vm: "VM", role: "Rôle", os: "OS", ip: "IP" },
+    tableHeaders: { vm: "VM", role: "Rôle", os: "OS" },
     machines: [
-      { vm: "VM1", role: "SIEM / Wazuh", os: "Amazon Linux", ip: "192.168.56.100" },
-      { vm: "VM2", role: "Contrôleur de domaine (AD DS)", os: "Windows Server 2025", ip: "192.168.56.10" },
-      { vm: "VM3", role: "Poste client du domaine", os: "Windows 10", ip: "192.168.56.20" },
-      { vm: "VM4", role: "Serveur Linux (SSH, FIM)", os: "Ubuntu Server 24.04 LTS", ip: "192.168.56.30" },
-      { vm: "VM5", role: "Machine attaquante (Red Team)", os: "Kali Linux", ip: "192.168.56.40" },
+      { vm: "VM1", role: "SIEM / Wazuh", os: "Amazon Linux" },
+      { vm: "VM2", role: "Contrôleur de domaine (AD DS)", os: "Windows Server 2025" },
+      { vm: "VM3", role: "Poste client du domaine", os: "Windows 10" },
+      { vm: "VM4", role: "Serveur Linux (SSH, FIM)", os: "Ubuntu Server 24.04 LTS" },
+      { vm: "VM5", role: "Machine attaquante (Red Team)", os: "Kali Linux"},
     ],
     lab2Title: "Home Lab — Elevate DFIR Skills 2024",
     lab2Description: "Environnement self-hosted d'investigation numérique et de réponse aux incidents, construit pour manipuler des cas réels d'analyse forensique.",
@@ -32,13 +32,13 @@ const content = {
     title: "Labs & Environments",
     lab1Title: "Virtualized SOC Lab — SFM Technologies Thesis",
     lab1Description: "Environment of 5 interconnected virtual machines (VMware, isolated NAT network 192.168.56.0/24) reproducing an enterprise information system, used to simulate 12 MITRE ATT&CK attack techniques and measure the contribution of Wazuh agents.",
-    tableHeaders: { vm: "VM", role: "Role", os: "OS", ip: "IP" },
+    tableHeaders: { vm: "VM", role: "Role", os: "OS" },
     machines: [
-      { vm: "VM1", role: "SIEM / Wazuh", os: "Amazon Linux", ip: "192.168.56.100" },
-      { vm: "VM2", role: "Domain Controller (AD DS)", os: "Windows Server 2025", ip: "192.168.56.10" },
-      { vm: "VM3", role: "Domain Client Workstation", os: "Windows 10", ip: "192.168.56.20" },
-      { vm: "VM4", role: "Linux Server (SSH, FIM)", os: "Ubuntu Server 24.04 LTS", ip: "192.168.56.30" },
-      { vm: "VM5", role: "Attacking Machine (Red Team)", os: "Kali Linux", ip: "192.168.56.40" },
+      { vm: "VM1", role: "SIEM / Wazuh", os: "Amazon Linux" },
+      { vm: "VM2", role: "Domain Controller (AD DS)", os: "Windows Server 2025" },
+      { vm: "VM3", role: "Domain Client Workstation", os: "Windows 10" },
+      { vm: "VM4", role: "Linux Server (SSH, FIM)", os: "Ubuntu Server 24.04 LTS" },
+      { vm: "VM5", role: "Attacking Machine (Red Team)", os: "Kali Linux" },
     ],
     lab2Title: "Home Lab — Elevate DFIR Skills 2024",
     lab2Description: "Self-hosted digital forensics and incident response environment, built to work through real forensic analysis cases.",
@@ -72,27 +72,30 @@ export default function Labs() {
           </div>
           <p className="mb-6 text-sm leading-6 text-[var(--muted)]">{t.lab1Description}</p>
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead>
-                <tr className="border-b border-[var(--border-color)] text-[var(--muted)]">
-                  <th className="pb-2 pr-4">{t.tableHeaders.vm}</th>
-                  <th className="pb-2 pr-4">{t.tableHeaders.role}</th>
-                  <th className="pb-2 pr-4">{t.tableHeaders.os}</th>
-                  <th className="pb-2">{t.tableHeaders.ip}</th>
-                </tr>
-              </thead>
-              <tbody className="text-[var(--muted)]">
-                {t.machines.map((m) => (
-                  <tr key={m.vm} className="border-b border-[var(--border-color)]/50">
-                    <td className="py-2 pr-4 font-semibold text-[var(--secondary)]">{m.vm}</td>
-                    <td className="py-2 pr-4 text-[var(--text)]">{m.role}</td>
-                    <td className="py-2 pr-4">{m.os}</td>
-                    <td className="py-2 font-mono text-xs">{m.ip}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+  <table className="w-full text-left text-sm">
+    <thead>
+      <tr className="border-b border-[var(--border-color)] text-[var(--muted)]">
+        <th className="pb-2 pr-4">{t.tableHeaders.vm}</th>
+        <th className="pb-2 pr-4">{t.tableHeaders.role}</th>
+        <th className="pb-2">{t.tableHeaders.os}</th>
+      </tr>
+    </thead>
+    <tbody className="text-[var(--muted)]">
+      {t.machines.map((m) => (
+        <tr key={m.vm} className="border-b border-[var(--border-color)]/50">
+          <td className="py-2 pr-4 font-semibold text-[var(--secondary)]">{m.vm}</td>
+          <td className="py-2 pr-4 text-[var(--text)]">{m.role}</td>
+          <td className="py-2">{m.os}</td>
+        </tr>
+      ))}
+        </tbody>
+      </table>
+        <p className="mt-4 text-xs italic text-[var(--muted)]">
+        {language === "fr"
+         ? "Toutes les machines sont interconnectées via un réseau NAT isolé (VMware), sans accès depuis l'extérieur du laboratoire."
+          : "All machines are interconnected via an isolated NAT network (VMware), with no access from outside the lab."}
+        </p>
+        </div>
         </div>
 
         <div className="mb-6">

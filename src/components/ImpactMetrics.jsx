@@ -8,7 +8,8 @@ const content = {
     eyebrow: "Résultats de laboratoire",
     title: "Impact & Résultats",
     disclaimer:
-      "Résultats issus d'expérimentations en environnement de laboratoire — non représentatifs d'un déploiement en production réelle.",
+  "Résultats issus d'expérimentations en environnement de laboratoire (6 techniques détectées sur 8 scénarios comparés) — non représentatifs d'un déploiement en production réelle.",
+
     metrics: [
       { value: "75%", label: "Taux de détection", description: "Taux de détection obtenu lors des scénarios testés en laboratoire." },
       { value: "12", label: "Techniques MITRE", description: "Techniques MITRE ATT&CK simulées et documentées." },
@@ -21,7 +22,7 @@ const content = {
     eyebrow: "Lab Results",
     title: "Impact & Results",
     disclaimer:
-      "Results from experiments in a laboratory environment — not representative of a real production deployment.",
+  "Results from experiments in a laboratory environment (6 techniques detected out of 8 compared scenarios) — not representative of a real production deployment.",
     metrics: [
       { value: "75%", label: "Detection Rate", description: "Detection rate achieved during the tested lab scenarios." },
       { value: "12", label: "MITRE Techniques", description: "MITRE ATT&CK techniques simulated and documented." },
