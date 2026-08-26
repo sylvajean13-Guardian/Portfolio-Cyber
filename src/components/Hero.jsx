@@ -92,9 +92,6 @@ export default function Hero() {
             />
           </div>
 
-          <div className="inline-flex items-center rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--secondary)]">
-            {t.badge}
-          </div>
         </div>
 
           <h1 className="text-5xl font-bold leading-tight tracking-tight text-[var(--text)] sm:text-6xl lg:text-7xl">
