@@ -31,7 +31,10 @@ import DetectionPipeline from "@/components/DetectionPipeline";
 import SecurityLab from "@/components/SecurityLab";
 import { useLanguage } from "@/context/LanguageContext";
 import TechnicalStack from "@/components/TechnicalStack";
-import Gallery from "@/components/Gallery";
+import dynamic from "next/dynamic";
+const Gallery = dynamic(() => import("@/components/Gallery"), {
+  loading: () => <div className="py-28 text-center text-sm text-[var(--muted)]">Chargement...</div>,
+});
 const skills = [
   {
     icon: ShieldCheck,
