@@ -92,8 +92,7 @@ export default function Hero() {
             />
           </div>
 
-          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--secondary)]">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--success)]" />
+          <div className="inline-flex items-center rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--secondary)]">
             {t.badge}
           </div>
         </div>
