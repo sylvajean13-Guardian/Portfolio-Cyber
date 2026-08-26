@@ -14,11 +14,13 @@ const content = {
     solutionLabel: "Solution",
     resultLabel: "Résultat",
     githubLabel: "Voir sur GitHub",
+    statusLabels: { completed: "Terminé", "in-progress": "En cours" },
     projects: [
       {
         icon: Bot,
         category: "Security Automation",
         title: "Agent IA SOC autonome",
+        status: "completed",
         problem: "Le triage manuel des alertes Wazuh est chronophage et manque de contexte externe pour évaluer la réelle criticité d'un événement.",
         solution: "Développement d'un agent Python qui collecte les alertes via OpenSearch, les enrichit avec 3 sources de Threat Intelligence, les classe grâce au modèle LLaMA 3.1 (via Groq), bloque automatiquement les IP confirmées malveillantes, et génère un rapport PDF envoyé par email — en cycle automatisé toutes les 30 minutes.",
         technologies: ["Python", "LLaMA 3.1 / Groq", "VirusTotal", "AbuseIPDB", "AlienVault OTX", "fpdf2", "SMTP"],
@@ -28,6 +30,7 @@ const content = {
         icon: Search,
         category: "Automation & NLP",
         title: "Agent de veille SOC/Cybersécurité",
+        status: "in-progress",
         problem: "La veille manuelle sur les offres d'emploi cybersécurité du marché ivoirien prend du temps et génère beaucoup de bruit (offres commerciales déguisées, doublons).",
         solution: "Agent Python de scraping automatisé avec filtrage par critères stricts (contrats CDI uniquement, mots-clés SOC/SIEM/Threat Intelligence) et un système de scoring à trois niveaux pour prioriser les opportunités pertinentes.",
         technologies: ["Python", "Scraping", "NLP", "Scoring"],
@@ -37,6 +40,7 @@ const content = {
         icon: HardDrive,
         category: "Digital Forensics & Incident Response",
         title: "DFIR Home Lab",
+        status: "in-progress",
         problem: "Acquérir une compétence pratique en investigation numérique nécessite de manipuler de vrais artefacts (disque, mémoire, réseau) plutôt que de la théorie seule.",
         solution: "Mise en place d'un environnement self-hosted avec une VM Windows (EZTools, Splunk) et une VM Kali Linux (Volatility3, Wireshark) pour analyser 5 cas pratiques fournis dans le cadre du programme Elevate DFIR Skills 2024.",
         technologies: ["Volatility3", "Splunk", "Wireshark", "EZTools"],
@@ -51,11 +55,13 @@ const content = {
     solutionLabel: "Solution",
     resultLabel: "Result",
     githubLabel: "View on GitHub",
+    statusLabels: { completed: "Completed", "in-progress": "In Progress" },
     projects: [
       {
         icon: Bot,
         category: "Security Automation",
         title: "Autonomous SOC AI Agent",
+        status: "completed",
         problem: "Manual triage of Wazuh alerts is time-consuming and lacks external context to assess an event's real criticality.",
         solution: "Developed a Python agent that collects alerts via OpenSearch, enriches them with 3 Threat Intelligence sources, classifies them using the LLaMA 3.1 model (via Groq), automatically blocks confirmed malicious IPs, and generates a PDF report sent by email — in an automated cycle every 30 minutes.",
         technologies: ["Python", "LLaMA 3.1 / Groq", "VirusTotal", "AbuseIPDB", "AlienVault OTX", "fpdf2", "SMTP"],
@@ -65,6 +71,7 @@ const content = {
         icon: Search,
         category: "Automation & NLP",
         title: "SOC/Cybersecurity Job Monitoring Agent",
+        status: "in-progress",
         problem: "Manually monitoring cybersecurity job postings on the Ivorian market is time-consuming and generates a lot of noise (disguised sales listings, duplicates).",
         solution: "Automated Python scraping agent with strict filtering criteria (permanent contracts only, SOC/SIEM/Threat Intelligence keywords) and a three-tier scoring system to prioritize relevant opportunities.",
         technologies: ["Python", "Scraping", "NLP", "Scoring"],
@@ -74,6 +81,7 @@ const content = {
         icon: HardDrive,
         category: "Digital Forensics & Incident Response",
         title: "DFIR Home Lab",
+        status: "in-progress",
         problem: "Building practical digital forensics skills requires handling real artifacts (disk, memory, network) rather than theory alone.",
         solution: "Set up a self-hosted environment with a Windows VM (EZTools, Splunk) and a Kali Linux VM (Volatility3, Wireshark) to analyze 5 practical cases provided as part of the Elevate DFIR Skills 2024 program.",
         technologies: ["Volatility3", "Splunk", "Wireshark", "EZTools"],
@@ -113,9 +121,20 @@ export default function Projects() {
                   <Icon size={24} />
                 </div>
 
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[var(--secondary)]">
-                  {project.category}
-                </p>
+                <div className="mb-2 flex items-center justify-between gap-2">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[var(--secondary)]">
+                    {project.category}
+                  </p>
+                  <span
+                    className={`shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide ${
+                      project.status === "completed"
+                        ? "bg-[var(--success)]/10 text-[var(--success)]"
+                        : "bg-[var(--warning)]/10 text-[var(--warning)]"
+                    }`}
+                  >
+                    {t.statusLabels[project.status]}
+                  </span>
+                </div>
                 <h3 className="text-xl font-semibold text-[var(--text)]">{project.title}</h3>
 
                 <div className="mt-4 space-y-3 text-sm leading-6 text-[var(--muted)]">
