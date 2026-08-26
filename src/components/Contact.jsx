@@ -70,7 +70,6 @@ export default function Contact() {
             {t.location}
           </div>
         </div>
-
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {contactLinks.map((link, index) => {
             const Icon = link.icon;

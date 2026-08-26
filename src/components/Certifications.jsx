@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Award, BadgeCheck } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -12,13 +13,12 @@ const content = {
     achievementsLabel: "Réalisations clés",
     issuedLabel: "Émise",
     idLabel: "ID",
-    // fr
-certifications: [
-  { title: "Building LLM Applications with Prompt Engineering", issuer: "NVIDIA", date: "Avril 2026", id: "v4rq1bLWQO-q2Ymc5WeYfw", status: "completed" },
-  { title: "DFIR Foundations and Techniques Course — Professional Skills and Readiness", issuer: "Blue Cape Security", date: "Août 2026", id: "11082026", status: "completed" },
-  { title: "Introduction to Cybersecurity", issuer: "Cisco Networking Academy", date: "Janvier 2025", status: "completed" },
-],
-statusLabels: { completed: "Terminée", "in-progress": "En cours" },
+    statusLabels: { completed: "Terminée", "in-progress": "En cours" },
+    certifications: [
+      { title: "Building LLM Applications with Prompt Engineering", issuer: "NVIDIA", date: "Avril 2026", id: "v4rq1bLWQO-q2Ymc5WeYfw", status: "completed", image: "/images/certifications/nvidia.jpg" },
+      { title: "DFIR Foundations and Techniques Course — Professional Skills and Readiness", issuer: "Blue Cape Security", date: "Août 2026", id: "11082026", status: "completed", image: "/images/certifications/bluecape-security.jpg" },
+      { title: "Introduction to Cybersecurity", issuer: "Cisco Networking Academy", date: "Janvier 2025", status: "completed", image: "/images/certifications/cisco.jpg" },
+    ],
     achievements: [
       "Conception et déploiement d'une plateforme de détection et réponse aux cybermenaces basée sur Wazuh SIEM, OpenSearch, Threat Intelligence et Intelligence Artificielle.",
       "Mise en place d'un laboratoire de cybersécurité reproduisant un environnement d'entreprise avec Active Directory, Windows Server, Windows et Linux.",
@@ -37,13 +37,12 @@ statusLabels: { completed: "Terminée", "in-progress": "En cours" },
     achievementsLabel: "Key Achievements",
     issuedLabel: "Issued",
     idLabel: "ID",
-    // en
-    certifications: [
-  { title: "Building LLM Applications with Prompt Engineering", issuer: "NVIDIA", date: "April 2026", id: "v4rq1bLWQO-q2Ymc5WeYfw", status: "completed" },
-  { title: "DFIR Foundations and Techniques Course — Professional Skills and Readiness", issuer: "Blue Cape Security", date: "August 2026", id: "11082026", status: "completed" },
-  { title: "Introduction to Cybersecurity", issuer: "Cisco Networking Academy", date: "January 2025", status: "completed" },
-  ],
     statusLabels: { completed: "Completed", "in-progress": "In Progress" },
+    certifications: [
+      { title: "Building LLM Applications with Prompt Engineering", issuer: "NVIDIA", date: "April 2026", id: "v4rq1bLWQO-q2Ymc5WeYfw", status: "completed", image: "/images/certifications/nvidia.jpg" },
+      { title: "DFIR Foundations and Techniques Course — Professional Skills and Readiness", issuer: "Blue Cape Security", date: "August 2026", id: "11082026", status: "completed", image: "/images/certifications/bluecape-security.jpg" },
+      { title: "Introduction to Cybersecurity", issuer: "Cisco Networking Academy", date: "January 2025", status: "completed", image: "/images/certifications/cisco.jpg" },
+    ],
     achievements: [
       "Designed and deployed a threat detection and response platform based on Wazuh SIEM, OpenSearch, Threat Intelligence and Artificial Intelligence.",
       "Built a cybersecurity lab reproducing an enterprise environment with Active Directory, Windows Server, Windows and Linux.",
@@ -81,31 +80,43 @@ export default function Certifications() {
             <div className="space-y-4">
               {t.certifications.map((cert, index) => (
                 <motion.div
-                    key={cert.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface)] p-6 shadow-sm transition hover:border-[var(--primary)]/40"
->
-                      <div className="flex items-start justify-between gap-3">
-                        <h4 className="font-semibold text-[var(--text)]">{cert.title}</h4>
-                        <span
-                          className={`shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide ${
-                            cert.status === "completed"
-                              ? "bg-[var(--success)]/10 text-[var(--success)]"
-                              : "bg-[var(--warning)]/10 text-[var(--warning)]"
-                          }`}
-                        >
-                          {t.statusLabels[cert.status]}
-                        </span>
-                      </div>
-                      <p className="mt-1 text-sm text-[var(--secondary)]">{cert.issuer}</p>
-                      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[var(--muted)]">
-                        <span>{t.issuedLabel} : {cert.date}</span>
-                        {cert.id && <span>{t.idLabel} : {cert.id}</span>}
-                      </div>
-                    </motion.div>
+                  key={cert.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex gap-4 rounded-2xl border border-[var(--border-color)] bg-[var(--surface)] p-6 shadow-sm transition hover:border-[var(--primary)]/40"
+                >
+                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-[var(--border-color)] bg-white p-2">
+                    <Image
+                      src={cert.image}
+                      alt={cert.issuer}
+                      fill
+                      sizes="56px"
+                      className="object-contain p-1"
+                    />
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start justify-between gap-3">
+                      <h4 className="font-semibold text-[var(--text)]">{cert.title}</h4>
+                      <span
+                        className={`shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide ${
+                          cert.status === "completed"
+                            ? "bg-[var(--success)]/10 text-[var(--success)]"
+                            : "bg-[var(--warning)]/10 text-[var(--warning)]"
+                        }`}
+                      >
+                        {t.statusLabels[cert.status]}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-sm text-[var(--secondary)]">{cert.issuer}</p>
+                    <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[var(--muted)]">
+                      <span>{t.issuedLabel} : {cert.date}</span>
+                      {cert.id && <span>{t.idLabel} : {cert.id}</span>}
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -116,7 +127,7 @@ export default function Certifications() {
               <h3 className="text-lg font-semibold text-[var(--text)]">{t.achievementsLabel}</h3>
             </div>
 
-            <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface)]/40 p-6">
+            <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface)] p-6 shadow-sm">
               <ul className="space-y-4">
                 {t.achievements.map((a, i) => (
                   <motion.li

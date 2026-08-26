@@ -30,6 +30,7 @@ import AttackScenarios from "@/components/AttackScenarios";
 import DetectionPipeline from "@/components/DetectionPipeline";
 import SecurityLab from "@/components/SecurityLab";
 import { useLanguage } from "@/context/LanguageContext";
+import ActivitiesGallery from "@/components/ActivitiesGallery";
 import TechnicalStack from "@/components/TechnicalStack";
 import dynamic from "next/dynamic";
 const Gallery = dynamic(() => import("@/components/Gallery"), {
@@ -96,6 +97,7 @@ export default function Home() {
       <Timeline />
       {/* CONTACT */}
       <Contact />
+      <ActivitiesGallery />
 
       {/* FOOTER */}
       <FooterSection />
