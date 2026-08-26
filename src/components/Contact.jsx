@@ -21,6 +21,7 @@ const content = {
     linkedinValue: "Jean Daniel Sylva Ossibouyen",
     githubValue: "Voir mon profil",
     cvButton: "Télécharger mon CV",
+    reportButton: "Télécharger le mémoire complet",
   },
   en: {
     eyebrow: "Contact",
@@ -36,6 +37,7 @@ const content = {
     linkedinValue: "Jean Daniel Sylva Ossibouyen",
     githubValue: "View my profile",
     cvButton: "Download my CV",
+    reportButton: "Download the full thesis",
   },
 };
 
@@ -98,14 +100,23 @@ export default function Contact() {
           })}
         </div>
 
-        <div className="mt-10 flex justify-center">
-          <a
-            href={socials.cv}
-            download
-            className="flex items-center gap-2 rounded-full bg-[var(--primary)] px-7 py-3 font-semibold text-white transition hover:brightness-110"
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href={socials.cv}
+           download
+          className="flex items-center gap-2 rounded-full bg-[var(--primary)] px-7 py-3 font-semibold text-white transition hover:brightness-110"
           >
-            <Download size={18} />
-            {t.cvButton}
+          <Download size={18} />
+           {t.cvButton}
+          </a>
+
+          <a
+          href={socials.report}
+          download
+          className="flex items-center gap-2 rounded-full border border-[var(--border-color)] bg-[var(--surface)] px-7 py-3 font-semibold text-[var(--text)] transition hover:border-[var(--primary)]/40"
+          >
+          <Download size={18} />
+          {t.reportButton}
           </a>
         </div>
       </div>

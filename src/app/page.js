@@ -31,6 +31,7 @@ import DetectionPipeline from "@/components/DetectionPipeline";
 import SecurityLab from "@/components/SecurityLab";
 import { useLanguage } from "@/context/LanguageContext";
 import TechnicalStack from "@/components/TechnicalStack";
+import Gallery from "@/components/Gallery";
 const skills = [
   {
     icon: ShieldCheck,
@@ -77,7 +78,7 @@ export default function Home() {
 
       {/* FEATURED CASE STUDY */}
       <CaseStudy />
-
+      <Gallery />
        {/* ARCHITECTURE SOC INTERACTIVE */}
       <AttackScenarios />
       <DetectionPipeline />

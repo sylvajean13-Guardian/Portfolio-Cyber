@@ -21,4 +21,5 @@ export const socials = {
   linkedin: "https://www.linkedin.com/in/jean-daniel-sylva-ossibouyen-4534b0332/",
   github: "https://github.com/sylvajean13-Guardian",
   cv: "/cv/Daniel-Sylva-CV.pdf",
+  report: "/documents/Memoire-Sylva-Integration-IA-SIEM.pdf",
 };

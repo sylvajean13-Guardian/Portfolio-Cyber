@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { socials } from "@/data/portfolio";
 
 const content = {
   fr: {
@@ -33,6 +34,7 @@ const content = {
     resultsText:
       "Le taux de détection est passé de 0 % à 75 % durant les scénarios évalués, suite au déploiement des agents Wazuh et à l'intégration d'une analyse basée sur l'IA, sur 12 techniques MITRE ATT&CK simulées en environnement de laboratoire.",
     linkText: "Voir le laboratoire complet",
+    reportLink: "Consulter le mémoire complet (PDF)",
   },
   en: {
     badge: "Featured Case Study",
@@ -62,6 +64,7 @@ const content = {
     resultsText:
       "Detection rate improved from 0% to 75% during the evaluated scenarios, following the deployment of Wazuh agents and the integration of AI-based analysis across 12 simulated MITRE ATT&CK techniques in a laboratory environment.",
     linkText: "View full lab environment",
+    reportLink: "Read the full thesis (PDF)",
   },
 };
 
@@ -206,6 +209,23 @@ export default function CaseStudy() {
           >
             {t.linkText}
             <ArrowRight size={18} />
+          </a>
+          <a       
+            href="#labs"
+            className="mt-6 inline-flex items-center gap-2 font-semibold text-[var(--secondary)] transition hover:text-[var(--text)]"
+          >
+            {t.linkText}
+            <ArrowRight size={18} />
+          </a>
+
+          <a
+            href={socials.report}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[var(--muted)] transition hover:text-[var(--secondary)]"
+          >
+            {t.reportLink}
+            <ArrowRight size={16} />
           </a>
         </motion.div>
       </div>

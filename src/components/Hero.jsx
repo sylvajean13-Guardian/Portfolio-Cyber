@@ -5,6 +5,7 @@ import { ArrowRight, Download, ShieldCheck } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { socials } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 const content = {
   fr: {
@@ -81,10 +82,23 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--secondary)]">
+          <div className="mb-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-[var(--primary)]/40 shadow-[0_0_30px_rgba(37,99,235,0.15)] sm:h-32 sm:w-32">
+            <Image
+              src="/images/profile-hero.jpeg"
+              alt="Jean Daniel Sylva Ossibouyen"
+              fill
+              sizes="128px"
+              className="object-cover"
+              priority
+            />
+          </div>
+
+          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--secondary)]">
             <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--success)]" />
             {t.badge}
           </div>
+        </div>
 
           <h1 className="text-5xl font-bold leading-tight tracking-tight text-[var(--text)] sm:text-6xl lg:text-7xl">
             {t.title}
