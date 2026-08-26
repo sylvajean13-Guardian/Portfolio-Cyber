@@ -36,7 +36,7 @@ export default function About() {
           <div className="absolute inset-0 rounded-full bg-[var(--primary)]/30 blur-xl" />
           <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-[var(--primary)]/50 shadow-[0_0_40px_rgba(37,99,235,0.25)]">
             <Image
-              src="/images/profile.jpg"
+              src="/images/profile-hero.jpeg"
               alt="Jean Daniel Sylva Ossibouyen"
               fill
               sizes="144px"

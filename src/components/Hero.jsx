@@ -9,7 +9,6 @@ import Image from "next/image";
 
 const content = {
   fr: {
-    badge: "Disponible pour des opportunités en cybersécurité",
     title: "Ingénieur Cybersécurité",
     subtitle: "SOC · SIEM · Threat Detection · AI · Security Automation",
     valueProp:
@@ -35,7 +34,6 @@ const content = {
       "Données issues d'un environnement de laboratoire expérimental — non représentatives d'un système en production.",
   },
   en: {
-    badge: "Available for cybersecurity opportunities",
     title: "Cybersecurity Engineer",
     subtitle: "SOC · SIEM · Threat Detection · AI · Security Automation",
     valueProp:
@@ -85,10 +83,10 @@ export default function Hero() {
           <div className="mb-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
           <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-[var(--primary)]/40 shadow-[0_0_30px_rgba(37,99,235,0.15)] sm:h-32 sm:w-32">
             <Image
-              src="/images/profile-hero.jpeg"
+              src="/images/profile.jpg"
               alt="Jean Daniel Sylva Ossibouyen"
               fill
-              sizes="128px"
+              sizes="148px"
               className="object-cover"
               priority
             />
