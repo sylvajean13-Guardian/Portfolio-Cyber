@@ -1,62 +1,54 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Download, ShieldCheck } from "lucide-react";
+import { ArrowRight, Download, ShieldAlert, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { socials } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
-import Image from "next/image";
 
 const content = {
   fr: {
+    badge: "Disponible pour des opportunités en cybersécurité",
     title: "Ingénieur Cybersécurité",
     subtitle: "SOC · SIEM · Threat Detection · AI · Security Automation",
     valueProp:
       "Je conçois des systèmes capables de détecter, analyser et répondre aux menaces de sécurité.",
     ctaProjects: "Explorer mes projets",
     ctaCV: "Télécharger mon CV",
-    panelTitle: "Security Operations Center",
-    panelBadge: "Lab Environment",
-    metrics: [
-      { label: "ÉVÉNEMENTS", value: "24 892" },
-      { label: "ALERTES", value: "127" },
-      { label: "SÉVÉRITÉ HAUTE", value: "8" },
-      { label: "IP BLOQUÉES", value: "34" },
+    panelTitle: "Triage d'alerte",
+    panelBadge: "Cas réel — Lab",
+    alertName: "Force brute — WinRM",
+    steps: [
+      { label: "Alerte reçue", detail: "Règles 60122 / 60204 — Wazuh SIEM" },
+      { label: "Mapping MITRE", detail: "T1110.001 — Brute Force (Credential Access)" },
+      { label: "Enrichissement", detail: "IP interne au lab — hors périmètre Threat Intel publique" },
+      { label: "Sévérité évaluée", detail: "Niveau 10 — tentatives répétées, échec systématique" },
+      { label: "Action recommandée", detail: "Blocage de la source + surveillance du compte ciblé" },
     ],
-    statuses: [
-      { label: "SIEM", state: "EN LIGNE" },
-      { label: "THREAT INTEL", state: "EN LIGNE" },
-      { label: "ANALYSE IA", state: "EN LIGNE" },
-      { label: "RÉPONSE ACTIVE", state: "EN LIGNE" },
-    ],
-    progressLabel: "Taux de détection — Scénarios de labo",
-    disclaimer:
-      "Données issues d'un environnement de laboratoire expérimental — non représentatives d'un système en production.",
+    footerNote:
+      "Analyse basée sur un scénario documenté du mémoire (environnement de laboratoire).",
   },
   en: {
+    badge: "Available for cybersecurity opportunities",
     title: "Cybersecurity Engineer",
     subtitle: "SOC · SIEM · Threat Detection · AI · Security Automation",
     valueProp:
       "I design systems capable of detecting, analyzing and responding to security threats.",
     ctaProjects: "Explore my projects",
     ctaCV: "Download my CV",
-    panelTitle: "Security Operations Center",
-    panelBadge: "Lab Environment",
-    metrics: [
-      { label: "EVENTS", value: "24,892" },
-      { label: "ALERTS", value: "127" },
-      { label: "HIGH SEVERITY", value: "8" },
-      { label: "BLOCKED IPS", value: "34" },
+    panelTitle: "Alert Triage",
+    panelBadge: "Real Case — Lab",
+    alertName: "WinRM Brute Force",
+    steps: [
+      { label: "Alert received", detail: "Rules 60122 / 60204 — Wazuh SIEM" },
+      { label: "MITRE Mapping", detail: "T1110.001 — Brute Force (Credential Access)" },
+      { label: "Enrichment", detail: "Internal lab IP — outside public Threat Intel scope" },
+      { label: "Severity assessed", detail: "Level 10 — repeated attempts, consistent failure" },
+      { label: "Recommended action", detail: "Block source + monitor targeted account" },
     ],
-    statuses: [
-      { label: "SIEM", state: "ONLINE" },
-      { label: "THREAT INTEL", state: "ONLINE" },
-      { label: "AI ANALYSIS", state: "ONLINE" },
-      { label: "ACTIVE RESPONSE", state: "ONLINE" },
-    ],
-    progressLabel: "Detection Rate — Lab Scenarios",
-    disclaimer:
-      "Data from an experimental laboratory environment — not representative of a production system.",
+    footerNote:
+      "Analysis based on a documented thesis scenario (laboratory environment).",
   },
 };
 
@@ -81,18 +73,22 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <div className="mb-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-[var(--primary)]/40 shadow-[0_0_30px_rgba(37,99,235,0.15)] sm:h-32 sm:w-32">
-            <Image
-              src="/images/profile.jpg"
-              alt="Jean Daniel Sylva Ossibouyen"
-              fill
-              sizes="148px"
-              className="object-cover"
-              priority
-            />
-          </div>
+            <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-[var(--primary)]/40 shadow-[0_0_30px_rgba(37,99,235,0.15)] sm:h-32 sm:w-32">
+              <Image
+                src="/images/profile-hero.jpg"
+                alt="Jean Daniel Sylva Ossibouyen"
+                fill
+                sizes="128px"
+                className="object-cover"
+                priority
+              />
+            </div>
 
-        </div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--secondary)]">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--success)]" />
+              {t.badge}
+            </div>
+          </div>
 
           <h1 className="text-5xl font-bold leading-tight tracking-tight text-[var(--text)] sm:text-6xl lg:text-7xl">
             {t.title}
@@ -147,72 +143,47 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* RIGHT — Security Operations Panel */}
+        {/* RIGHT — Alert Triage Panel */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="hidden lg:block"
         >
-          <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface)]/70 p-6 shadow-2xl backdrop-blur-xl">
+          <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface)] p-6 shadow-xl">
             <div className="mb-5 flex items-center justify-between border-b border-[var(--border-color)] pb-4">
               <div className="flex items-center gap-2 text-[var(--text)]">
-                <ShieldCheck size={18} className="text-[var(--secondary)]" />
+                <ShieldAlert size={18} className="text-[var(--secondary)]" />
                 <span className="text-sm font-semibold uppercase tracking-wide">
                   {t.panelTitle}
                 </span>
               </div>
-              <span className="flex items-center gap-1.5 rounded-full bg-[var(--warning)]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[var(--warning)]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--warning)]" />
+              <span className="rounded-full bg-[var(--warning)]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[var(--warning)]">
                 {t.panelBadge}
               </span>
             </div>
 
-            <div className="mb-6 grid grid-cols-2 gap-4">
-              {t.metrics.map((m) => (
-                <div key={m.label}>
-                  <p className="text-2xl font-bold text-[var(--text)]">{m.value}</p>
-                  <p className="mt-1 text-[11px] uppercase tracking-wide text-[var(--muted)]">
-                    {m.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <p className="mb-5 text-sm font-semibold text-[var(--text)]">{t.alertName}</p>
 
-            <div className="space-y-2 border-t border-[var(--border-color)] pt-4">
-              {t.statuses.map((s, i) => (
+            <div className="space-y-3">
+              {t.steps.map((step, i) => (
                 <motion.div
-                  key={s.label}
-                  initial={{ opacity: 0, x: 10 }}
+                  key={step.label}
+                  initial={{ opacity: 0, x: 12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 + i * 0.1 }}
-                  className="flex items-center justify-between text-xs"
+                  transition={{ delay: 0.4 + i * 0.15 }}
+                  className="flex gap-3 rounded-xl border border-[var(--border-color)] bg-[var(--background)] p-3"
                 >
-                  <span className="text-[var(--muted)]">{s.label}</span>
-                  <span className="flex items-center gap-1.5 font-semibold text-[var(--success)]">
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--success)]" />
-                    {s.state}
-                  </span>
+                  <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[var(--success)]" />
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold text-[var(--text)]">{step.label}</p>
+                    <p className="mt-0.5 text-xs leading-5 text-[var(--muted)]">{step.detail}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
 
-            <div className="mt-5">
-              <div className="mb-1.5 flex justify-between text-[10px] text-[var(--muted)]">
-                <span>{t.progressLabel}</span>
-                <span className="text-[var(--secondary)]">75%</span>
-              </div>
-              <div className="h-1.5 overflow-hidden rounded-full bg-white/5">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: "75%" }}
-                  transition={{ duration: 1.4, delay: 0.6 }}
-                  className="h-full rounded-full bg-[var(--secondary)]"
-                />
-              </div>
-            </div>
-
-            <p className="mt-4 text-[10px] italic text-[var(--muted)]">{t.disclaimer}</p>
+            <p className="mt-4 text-[10px] italic text-[var(--muted)]">{t.footerNote}</p>
           </div>
         </motion.div>
       </div>
