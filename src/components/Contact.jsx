@@ -101,9 +101,11 @@ export default function Contact() {
 
         <div className="mt-10 flex flex-wrap justify-center gap-4">
         <a
-          href={socials.cv}
-           download
+          
+          href={socials.cv[language]}
+          download
           className="flex items-center gap-2 rounded-full bg-[var(--primary)] px-7 py-3 font-semibold text-white transition hover:brightness-110"
+
           >
           <Download size={18} />
            {t.cvButton}

@@ -20,6 +20,9 @@ export const socials = {
   email: "sylvajean13@gmail.com",
   linkedin: "https://www.linkedin.com/in/jean-daniel-sylva-ossibouyen-4534b0332/",
   github: "https://github.com/sylvajean13-Guardian",
-  cv: "/cv/Daniel-Sylva-CV.pdf",
+  cv: {
+    fr: "/cv/Daniel-Sylva-CV-FR.pdf",
+    en: "/cv/Daniel-Sylva-CV-EN.pdf",
+  },
   report: "/documents/Memoire-Sylva-Integration-IA-SIEM.pdf",
 };
