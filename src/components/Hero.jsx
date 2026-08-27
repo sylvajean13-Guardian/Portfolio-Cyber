@@ -2,53 +2,65 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Download, ShieldAlert, CheckCircle2 } from "lucide-react";
-import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { socials } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 const content = {
   fr: {
-    badge: "Disponible pour des opportunités en cybersécurité",
     title: "Ingénieur Cybersécurité",
     subtitle: "SOC · SIEM · Threat Detection · AI · Security Automation",
     valueProp:
       "Je conçois des systèmes capables de détecter, analyser et répondre aux menaces de sécurité.",
     ctaProjects: "Explorer mes projets",
     ctaCV: "Télécharger mon CV",
-    panelTitle: "Triage d'alerte",
-    panelBadge: "Cas réel — Lab",
-    alertName: "Force brute — WinRM",
+    panelTitle: "Triage d'alerte SOC",
+    panelBadge: "Alerte de laboratoire",
+    alertId: "Alerte #WZ-60109",
+    ruleLabel: "Règle Wazuh",
+    mitreLabel: "MITRE ATT&CK",
+    severityLabel: "Sévérité",
+    severityValue: "8 — Élevée",
+    description:
+      "Création d'un compte utilisateur et ajout au groupe « Admins du domaine » détectée via session Evil-WinRM.",
+    stepsLabel: "Étapes d'analyse",
     steps: [
-      { label: "Alerte reçue", detail: "Règles 60122 / 60204 — Wazuh SIEM" },
-      { label: "Mapping MITRE", detail: "T1110.001 — Brute Force (Credential Access)" },
-      { label: "Enrichissement", detail: "IP interne au lab — hors périmètre Threat Intel publique" },
-      { label: "Sévérité évaluée", detail: "Niveau 10 — tentatives répétées, échec systématique" },
-      { label: "Action recommandée", detail: "Blocage de la source + surveillance du compte ciblé" },
+      { label: "Détection", detail: "Event ID 4720 corrélé à une session WinRM active" },
+      { label: "Corrélation", detail: "Compte créé puis élevé en moins de 30 secondes" },
+      { label: "Décision", detail: "Comportement anormal — élévation de privilèges non planifiée" },
     ],
-    footerNote:
-      "Analyse basée sur un scénario documenté du mémoire (environnement de laboratoire).",
+    statusLabel: "Statut",
+    statusValue: "Analysée & contenue",
+    disclaimer:
+      "Alerte issue d'un scénario simulé en environnement de laboratoire — analyse réalisée manuellement dans le cadre du mémoire.",
   },
   en: {
-    badge: "Available for cybersecurity opportunities",
     title: "Cybersecurity Engineer",
     subtitle: "SOC · SIEM · Threat Detection · AI · Security Automation",
     valueProp:
       "I design systems capable of detecting, analyzing and responding to security threats.",
     ctaProjects: "Explore my projects",
     ctaCV: "Download my CV",
-    panelTitle: "Alert Triage",
-    panelBadge: "Real Case — Lab",
-    alertName: "WinRM Brute Force",
+    panelTitle: "SOC Alert Triage",
+    panelBadge: "Lab Alert",
+    alertId: "Alert #WZ-60109",
+    ruleLabel: "Wazuh Rule",
+    mitreLabel: "MITRE ATT&CK",
+    severityLabel: "Severity",
+    severityValue: "8 — High",
+    description:
+      "User account creation and addition to the 'Domain Admins' group detected via an active Evil-WinRM session.",
+    stepsLabel: "Analysis Steps",
     steps: [
-      { label: "Alert received", detail: "Rules 60122 / 60204 — Wazuh SIEM" },
-      { label: "MITRE Mapping", detail: "T1110.001 — Brute Force (Credential Access)" },
-      { label: "Enrichment", detail: "Internal lab IP — outside public Threat Intel scope" },
-      { label: "Severity assessed", detail: "Level 10 — repeated attempts, consistent failure" },
-      { label: "Recommended action", detail: "Block source + monitor targeted account" },
+      { label: "Detection", detail: "Event ID 4720 correlated with an active WinRM session" },
+      { label: "Correlation", detail: "Account created then elevated in under 30 seconds" },
+      { label: "Decision", detail: "Abnormal behavior — unplanned privilege escalation" },
     ],
-    footerNote:
-      "Analysis based on a documented thesis scenario (laboratory environment).",
+    statusLabel: "Status",
+    statusValue: "Analyzed & contained",
+    disclaimer:
+      "Alert from a simulated scenario in a lab environment — manually analyzed as part of the thesis.",
   },
 };
 
@@ -73,22 +85,18 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <div className="mb-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-            <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-[var(--primary)]/40 shadow-[0_0_30px_rgba(37,99,235,0.15)] sm:h-32 sm:w-32">
-              <Image
-                src="/images/profile-hero.jpg"
-                alt="Jean Daniel Sylva Ossibouyen"
-                fill
-                sizes="128px"
-                className="object-cover"
-                priority
-              />
-            </div>
-
-            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--secondary)]">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--success)]" />
-              {t.badge}
-            </div>
+          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-[var(--primary)]/40 shadow-[0_0_30px_rgba(37,99,235,0.15)] sm:h-32 sm:w-32">
+            <Image
+              src="/images/profile.jpg"
+              alt="Jean Daniel Sylva Ossibouyen"
+              fill
+              sizes="148px"
+              className="object-cover"
+              priority
+            />
           </div>
+
+        </div>
 
           <h1 className="text-5xl font-bold leading-tight tracking-tight text-[var(--text)] sm:text-6xl lg:text-7xl">
             {t.title}
@@ -150,40 +158,84 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="hidden lg:block"
         >
-          <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface)] p-6 shadow-xl">
+          <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface)]/70 p-6 shadow-2xl backdrop-blur-xl">
             <div className="mb-5 flex items-center justify-between border-b border-[var(--border-color)] pb-4">
               <div className="flex items-center gap-2 text-[var(--text)]">
-                <ShieldAlert size={18} className="text-[var(--secondary)]" />
+                <ShieldAlert size={18} className="text-[var(--critical)]" />
                 <span className="text-sm font-semibold uppercase tracking-wide">
                   {t.panelTitle}
                 </span>
               </div>
-              <span className="rounded-full bg-[var(--warning)]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[var(--warning)]">
+              <span className="flex items-center gap-1.5 rounded-full bg-[var(--warning)]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[var(--warning)]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[var(--warning)]" />
                 {t.panelBadge}
               </span>
             </div>
 
-            <p className="mb-5 text-sm font-semibold text-[var(--text)]">{t.alertName}</p>
+            <p className="text-xs font-mono text-[var(--muted)]">{t.alertId}</p>
 
-            <div className="space-y-3">
-              {t.steps.map((step, i) => (
-                <motion.div
-                  key={step.label}
-                  initial={{ opacity: 0, x: 12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 + i * 0.15 }}
-                  className="flex gap-3 rounded-xl border border-[var(--border-color)] bg-[var(--background)] p-3"
-                >
-                  <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[var(--success)]" />
-                  <div className="min-w-0">
-                    <p className="text-xs font-semibold text-[var(--text)]">{step.label}</p>
-                    <p className="mt-0.5 text-xs leading-5 text-[var(--muted)]">{step.detail}</p>
-                  </div>
-                </motion.div>
-              ))}
+            <p className="mt-2 text-sm leading-6 text-[var(--text)]">{t.description}</p>
+
+            <div className="mt-4 grid grid-cols-2 gap-3 border-t border-[var(--border-color)] pt-4">
+              <div>
+                <p className="text-[10px] uppercase tracking-wide text-[var(--muted)]">
+                  {t.ruleLabel}
+                </p>
+                <p className="mt-0.5 text-sm font-semibold text-[var(--text)]">60109</p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-wide text-[var(--muted)]">
+                  {t.mitreLabel}
+                </p>
+                <p className="mt-0.5 text-sm font-semibold text-[var(--secondary)]">
+                  T1098.001
+                </p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-wide text-[var(--muted)]">
+                  {t.severityLabel}
+                </p>
+                <p className="mt-0.5 text-sm font-semibold text-[var(--critical)]">
+                  {t.severityValue}
+                </p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-wide text-[var(--muted)]">
+                  {t.statusLabel}
+                </p>
+                <p className="mt-0.5 flex items-center gap-1 text-sm font-semibold text-[var(--success)]">
+                  <CheckCircle2 size={13} />
+                  {t.statusValue}
+                </p>
+              </div>
             </div>
 
-            <p className="mt-4 text-[10px] italic text-[var(--muted)]">{t.footerNote}</p>
+            <div className="mt-5 border-t border-[var(--border-color)] pt-4">
+              <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--muted)]">
+                {t.stepsLabel}
+              </p>
+              <div className="space-y-2.5">
+                {t.steps.map((step, i) => (
+                  <motion.div
+                    key={step.label}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4 + i * 0.12 }}
+                    className="flex items-start gap-2 text-xs"
+                  >
+                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[9px] font-bold text-[var(--primary)]">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <span className="font-semibold text-[var(--text)]">{step.label} — </span>
+                      <span className="text-[var(--muted)]">{step.detail}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <p className="mt-5 text-[10px] italic text-[var(--muted)]">{t.disclaimer}</p>
           </div>
         </motion.div>
       </div>
