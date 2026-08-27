@@ -192,7 +192,7 @@ export default function Navbar() {
                   <FaGithub size={20} />
                 </a>
                 <a
-                  href={socials.cv}
+                  href={socials.cv[language]}
                   download
                   onClick={closeMobile}
                   className="ml-auto flex items-center gap-2 rounded-full bg-[var(--primary)] px-4 py-2 text-sm font-medium text-white"
