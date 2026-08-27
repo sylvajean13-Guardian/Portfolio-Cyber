@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const content = {
   fr: {
-    title: "Ingénieur Cybersécurité",
+    title: "Ingénieur Réseaux & Cybersécurité",
     subtitle: "SOC · SIEM · Threat Detection · AI · Security Automation",
     valueProp:
       "Je conçois des systèmes capables de détecter, analyser et répondre aux menaces de sécurité.",
