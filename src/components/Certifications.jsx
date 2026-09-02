@@ -15,6 +15,8 @@ const content = {
     idLabel: "ID",
     statusLabels: { completed: "Terminée", "in-progress": "En cours" },
     certifications: [
+      { title: "Endpoint Security", issuer: "Palo Alto Networks", date: "Septembre 2026", id: "C580065", status: "completed", image: "/images/certifications/paloalto.jpg" },
+      { title: "Cybersecurity Fundamentals", issuer: "Palo Alto Networks", date: "Septembre 2026", id: "C580064", status: "completed", image: "/images/certifications/paloalto.jpg" },
       { title: "Building LLM Applications with Prompt Engineering", issuer: "NVIDIA", date: "Avril 2026", id: "v4rq1bLWQO-q2Ymc5WeYfw", status: "completed", image: "/images/certifications/nvidia.jpg" },
       { title: "DFIR Foundations and Techniques Course — Professional Skills and Readiness", issuer: "Blue Cape Security", date: "Août 2026", id: "11082026", status: "completed", image: "/images/certifications/bluecape-security.jpg" },
       { title: "Introduction to Cybersecurity", issuer: "Cisco Networking Academy", date: "Janvier 2025", status: "completed", image: "/images/certifications/cisco.jpg" },
@@ -39,6 +41,8 @@ const content = {
     idLabel: "ID",
     statusLabels: { completed: "Completed", "in-progress": "In Progress" },
     certifications: [
+      { title: "Endpoint Security", issuer: "Palo Alto Networks", date: "September 2026", id: "C580065", status: "completed", image: "/images/certifications/paloalto.jpg" },
+      { title: "Cybersecurity Fundamentals", issuer: "Palo Alto Networks", date: "September 2026", id: "C580064", status: "completed", image: "/images/certifications/paloalto.jpg" },
       { title: "Building LLM Applications with Prompt Engineering", issuer: "NVIDIA", date: "April 2026", id: "v4rq1bLWQO-q2Ymc5WeYfw", status: "completed", image: "/images/certifications/nvidia.jpg" },
       { title: "DFIR Foundations and Techniques Course — Professional Skills and Readiness", issuer: "Blue Cape Security", date: "August 2026", id: "11082026", status: "completed", image: "/images/certifications/bluecape-security.jpg" },
       { title: "Introduction to Cybersecurity", issuer: "Cisco Networking Academy", date: "January 2025", status: "completed", image: "/images/certifications/cisco.jpg" },
