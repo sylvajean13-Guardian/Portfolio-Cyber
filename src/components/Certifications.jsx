@@ -13,8 +13,17 @@ const content = {
     achievementsLabel: "Réalisations clés",
     issuedLabel: "Émise",
     idLabel: "ID",
+    credentialLabel: "Voir le diplôme",
     statusLabels: { completed: "Terminée", "in-progress": "En cours" },
     certifications: [
+      {
+        title: "Governance, Risk, Compliance, and Data Privacy",
+        issuer: "IBM",
+        date: "12 septembre 2026",
+        status: "completed",
+        image: "/images/certifications/ibm.png",
+        url: "https://www.credly.com/badges/40bd1415-8cef-4c11-bfaf-4b0b4cdf8191",
+      },
       { title: "Endpoint Security", issuer: "Palo Alto Networks", date: "Septembre 2026", id: "C580065", status: "completed", image: "/images/certifications/paloalto.jpg" },
       { title: "Cybersecurity Fundamentals", issuer: "Palo Alto Networks", date: "Septembre 2026", id: "C580064", status: "completed", image: "/images/certifications/paloalto.jpg" },
       { title: "Building LLM Applications with Prompt Engineering", issuer: "NVIDIA", date: "Avril 2026", id: "v4rq1bLWQO-q2Ymc5WeYfw", status: "completed", image: "/images/certifications/nvidia.jpg" },
@@ -39,8 +48,17 @@ const content = {
     achievementsLabel: "Key Achievements",
     issuedLabel: "Issued",
     idLabel: "ID",
+    credentialLabel: "View credential",
     statusLabels: { completed: "Completed", "in-progress": "In Progress" },
     certifications: [
+       {
+        title: "Governance, Risk, Compliance, and Data Privacy",
+        issuer: "IBM",
+        date: "September 12, 2026",
+        status: "completed",
+        image: "/images/certifications/ibm.png",
+        url: "https://www.credly.com/badges/40bd1415-8cef-4c11-bfaf-4b0b4cdf8191",
+        },
       { title: "Endpoint Security", issuer: "Palo Alto Networks", date: "September 2026", id: "C580065", status: "completed", image: "/images/certifications/paloalto.jpg" },
       { title: "Cybersecurity Fundamentals", issuer: "Palo Alto Networks", date: "September 2026", id: "C580064", status: "completed", image: "/images/certifications/paloalto.jpg" },
       { title: "Building LLM Applications with Prompt Engineering", issuer: "NVIDIA", date: "April 2026", id: "v4rq1bLWQO-q2Ymc5WeYfw", status: "completed", image: "/images/certifications/nvidia.jpg" },
@@ -116,9 +134,19 @@ export default function Certifications() {
                     </div>
                     <p className="mt-1 text-sm text-[var(--secondary)]">{cert.issuer}</p>
                     <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[var(--muted)]">
-                      <span>{t.issuedLabel} : {cert.date}</span>
-                      {cert.id && <span>{t.idLabel} : {cert.id}</span>}
-                    </div>
+                  <span>{t.issuedLabel} : {cert.date}</span>
+                    {cert.id && <span>{t.idLabel} : {cert.id}</span>}
+                    {cert.url && (
+                      <a
+                        href={cert.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-[var(--primary)] hover:underline"
+                      >
+                        {t.credentialLabel} ↗
+                      </a>
+                    )}
+                  </div>
                   </div>
                 </motion.div>
               ))}
