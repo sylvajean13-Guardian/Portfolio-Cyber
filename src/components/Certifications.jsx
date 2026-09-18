@@ -16,14 +16,7 @@ const content = {
     credentialLabel: "Voir le diplôme",
     statusLabels: { completed: "Terminée", "in-progress": "En cours" },
     certifications: [
-      {
-        title: "Governance, Risk, Compliance, and Data Privacy",
-        issuer: "IBM",
-        date: "12 septembre 2026",
-        status: "completed",
-        image: "/images/certifications/ibm.jpg",
-        url: "https://www.credly.com/badges/40bd1415-8cef-4c11-bfaf-4b0b4cdf8191",
-      },
+      
       {
         title: "Vulnerability Management",
         issuer: "IBM",
@@ -31,6 +24,14 @@ const content = {
         status: "completed",
         image: "/images/certifications/ibm.jpg",
         url: "https://www.credly.com/badges/07e73ddb-6f30-43a9-8c28-f07d856c977e",
+      },
+      {
+        title: "Governance, Risk, Compliance, and Data Privacy",
+        issuer: "IBM",
+        date: "12 septembre 2026",
+        status: "completed",
+        image: "/images/certifications/ibm.jpg",
+        url: "https://www.credly.com/badges/40bd1415-8cef-4c11-bfaf-4b0b4cdf8191",
       },
       { title: "Endpoint Security", issuer: "Palo Alto Networks", date: "Septembre 2026", id: "C580065", status: "completed", image: "/images/certifications/paloalto.jpg" },
       { title: "Cybersecurity Fundamentals", issuer: "Palo Alto Networks", date: "Septembre 2026", id: "C580064", status: "completed", image: "/images/certifications/paloalto.jpg" },
@@ -59,14 +60,7 @@ const content = {
     credentialLabel: "View credential",
     statusLabels: { completed: "Completed", "in-progress": "In Progress" },
     certifications: [
-       {
-        title: "Governance, Risk, Compliance, and Data Privacy",
-        issuer: "IBM",
-        date: "September 12, 2026",
-        status: "completed",
-        image: "/images/certifications/ibm.jpg",
-        url: "https://www.credly.com/badges/40bd1415-8cef-4c11-bfaf-4b0b4cdf8191",
-        },
+       
          {
         title: "Vulnerability Management",
         issuer: "IBM",
@@ -75,6 +69,14 @@ const content = {
         image: "/images/certifications/ibm.jpg",
         url: "https://www.credly.com/badges/07e73ddb-6f30-43a9-8c28-f07d856c977e",
       },
+      {
+        title: "Governance, Risk, Compliance, and Data Privacy",
+        issuer: "IBM",
+        date: "September 12, 2026",
+        status: "completed",
+        image: "/images/certifications/ibm.jpg",
+        url: "https://www.credly.com/badges/40bd1415-8cef-4c11-bfaf-4b0b4cdf8191",
+        },
       { title: "Endpoint Security", issuer: "Palo Alto Networks", date: "September 2026", id: "C580065", status: "completed", image: "/images/certifications/paloalto.jpg" },
       { title: "Cybersecurity Fundamentals", issuer: "Palo Alto Networks", date: "September 2026", id: "C580064", status: "completed", image: "/images/certifications/paloalto.jpg" },
       { title: "Building LLM Applications with Prompt Engineering", issuer: "NVIDIA", date: "April 2026", id: "v4rq1bLWQO-q2Ymc5WeYfw", status: "completed", image: "/images/certifications/nvidia.jpg" },
