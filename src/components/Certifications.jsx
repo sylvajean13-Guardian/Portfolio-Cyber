@@ -16,7 +16,14 @@ const content = {
     credentialLabel: "Voir le diplôme",
     statusLabels: { completed: "Terminée", "in-progress": "En cours" },
     certifications: [
-      
+         {
+        title: "System and Network Security",
+        issuer: "IBM",
+        date: "26 septembre 2026",
+        status: "completed",
+        image: "/images/certifications/ibm.jpg",
+        url: "https://www.credly.com/badges/0cac84ba-ba5e-40af-9f0f-a94ad2cba8c4",
+      },
       {
         title: "Vulnerability Management",
         issuer: "IBM",
@@ -60,7 +67,14 @@ const content = {
     credentialLabel: "View credential",
     statusLabels: { completed: "Completed", "in-progress": "In Progress" },
     certifications: [
-       
+       {
+        title: "System and Network Security",
+        issuer: "IBM",
+        date: "26 septembre 2026",
+        status: "completed",
+        image: "/images/certifications/ibm.jpg",
+        url: "https://www.credly.com/badges/0cac84ba-ba5e-40af-9f0f-a94ad2cba8c4",
+      },
          {
         title: "Vulnerability Management",
         issuer: "IBM",
