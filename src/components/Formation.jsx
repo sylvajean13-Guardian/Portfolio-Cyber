@@ -10,8 +10,18 @@ const content = {
     title: "Formations",
     formations: [
       {
+    degree: "MSc Cybersecurity, Cloud, Systems & Networks",
+     mention: "Mention : Très bien",
+    school: "ÉSTIAM — École Supérieure des Technologies de l'Information Appliquées aux Métiers, Paris, France",
+    period: "Sept 2024 - Juillet 2026",
+    details: [
+    "Cursus : MSc Cybersecurity, Cloud, Systems & Networks cursus Digital Media.",
+    "Titre délivré le 20/08/2026, conformément au procès-verbal du jury de certification professionnelle du 04/08/2026.",
+  ],
+      },
+      {
         degree: "Master en Sécurité des Systèmes d'Informations",
-        mention: "Mention : Excellente",
+        mention: "Mention : Très bien",
         school: "Ecole Supérieure de Génie Informatique et de Technologie (ESGITECH), Tunis, Tunisie",
         period: "Sept 2024 - Juillet 2026",
         details: [
@@ -44,6 +54,16 @@ const content = {
     eyebrow: "Academic Background",
     title: "Education",
     formations: [
+      {
+    degree: "MSc Cybersecurity, Cloud, Systems & Networks",
+     mention:  "Honors: Highest Distinction",
+    school: "ÉSTIAM — École Supérieure des Technologies de l'Information Appliquées aux Métiers, Paris, France",
+    period: "Sept 2024 - Juillet 2026",
+    details: [
+    "Program : MSc Cybersecurity, Cloud, Systems & Networks cursus Digital Media.",
+    "Degree awarded on 08/20/2026, in accordance with the certification jury's minutes dated 08/04/2026.",
+  ],
+      },
       {
         degree: "Master's Degree in Information Systems Security",
         mention: "Honors: Highest Distinction",
