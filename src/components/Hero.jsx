@@ -6,6 +6,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { socials } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
+import { ArrowRight, Eye, ShieldAlert, CheckCircle2 } from "lucide-react";
 
 const content = {
   fr: {
@@ -14,7 +15,7 @@ const content = {
     valueProp:
       "Je conçois des systèmes capables de détecter, analyser et répondre aux menaces de sécurité.",
     ctaProjects: "Explorer mes projets",
-    ctaCV: "Télécharger mon CV",
+    ctaCV: "Consulter mon CV",
     panelTitle: "Triage d'alerte SOC",
     panelBadge: "Alerte de laboratoire",
     alertId: "Alerte #WZ-60109",
@@ -41,7 +42,7 @@ const content = {
     valueProp:
       "I design systems capable of detecting, analyzing and responding to security threats.",
     ctaProjects: "Explore my projects",
-    ctaCV: "Download my CV",
+    ctaCV: "View my CV",
     panelTitle: "SOC Alert Triage",
     panelBadge: "Lab Alert",
     alertId: "Alert #WZ-60109",
@@ -120,11 +121,12 @@ export default function Hero() {
             </a>
 
             <a
-              href={socials.cv[language]}
-              download
+            href={socials.cv[language]}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-full border border-black/10 px-6 py-3 font-semibold text-[var(--text)] transition hover:border-[var(--primary)] hover:text-[var(--secondary)]"
             >
-              <Download size={18} />
+              <Eye size={18} />
               {t.ctaCV}
             </a>
 

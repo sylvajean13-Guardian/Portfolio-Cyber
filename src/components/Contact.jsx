@@ -20,7 +20,7 @@ const content = {
     githubLabel: "GitHub",
     linkedinValue: "Jean Daniel Sylva Ossibouyen",
     githubValue: "Voir mon profil",
-    cvButton: "Télécharger mon CV",
+    cvButton: "Consulter mon CV",
     reportButton: "Télécharger le mémoire complet",
   },
   en: {
@@ -36,7 +36,7 @@ const content = {
     githubLabel: "GitHub",
     linkedinValue: "Jean Daniel Sylva Ossibouyen",
     githubValue: "View my profile",
-    cvButton: "Download my CV",
+    cvButton: "View my CV",
     reportButton: "Download the full thesis",
   },
 };
@@ -103,12 +103,12 @@ export default function Contact() {
         <a
           
           href={socials.cv[language]}
-          download
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-2 rounded-full bg-[var(--primary)] px-7 py-3 font-semibold text-white transition hover:brightness-110"
-
-          >
-          <Download size={18} />
-           {t.cvButton}
+        >
+          <Eye size={18} />
+          {t.cvButton}
           </a>
 
           <a

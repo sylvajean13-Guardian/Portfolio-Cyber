@@ -7,6 +7,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { siteConfig, socials } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
+import { Menu, X, Download, Sun, Moon, Eye } from "lucide-react";
 
 const navLinksContent = {
   fr: [
@@ -113,12 +114,13 @@ export default function Navbar() {
               <FaGithub size={18} />
             </a>
             <a
-              href={socials.cv[language]}
-              download
-              className="flex items-center gap-2 rounded-full border border-[var(--primary)]/40 bg-[var(--primary)]/10 px-4 py-2 text-sm font-medium text-[var(--secondary)] transition hover:bg-[var(--primary)] hover:text-white"
-            >
-              <Download size={16} />
-              CV
+                href={socials.cv[language]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-full border border-[var(--primary)]/40 bg-[var(--primary)]/10 px-4 py-2 text-sm font-medium text-[var(--secondary)] transition hover:bg-[var(--primary)] hover:text-white"
+              >
+                <Eye size={16} />
+                CV
             </a>
           </div>
 
@@ -193,11 +195,12 @@ export default function Navbar() {
                 </a>
                 <a
                   href={socials.cv[language]}
-                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={closeMobile}
                   className="ml-auto flex items-center gap-2 rounded-full bg-[var(--primary)] px-4 py-2 text-sm font-medium text-white"
                 >
-                  <Download size={16} />
+                  <Eye size={16} />
                   CV
                 </a>
               </div>
