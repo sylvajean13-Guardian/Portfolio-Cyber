@@ -39,7 +39,7 @@ const content = {
         mention: "Mention : Bien",
         school: "Université de Bangui, Bangui, Centrafrique",
         period: "Janvier 2021 - Octobre 2023",
-        url: "/documents/diplomes/licence.pdf",
+        url: "/documents/diplomes/licence-teleinformatique.pdf",
         details: [
           "Spécialisation : Téléinformatique (Réseau et Télécommunication).",
           "Projet de fin d'études : Etude du déploiement d'un réseau optique à Ngaragba en utilisant du FTTH.",
@@ -88,7 +88,7 @@ const content = {
         mention: "Honors: Good",
         school: "University of Bangui, Bangui, Central African Republic",
         period: "January 2021 - October 2023",
-        url: "/documents/diplomes/licence.pdf",
+        url: "/documents/diplomes/licence-teleinformatique.pdf",
         details: [
           "Specialization: Teleinformatics (Networking and Telecommunications).",
           "Capstone project: Study of an optical fiber network deployment in Ngaragba using FTTH.",
