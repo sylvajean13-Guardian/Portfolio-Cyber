@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Award, BadgeCheck } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { Award, BadgeCheck, Eye } from "lucide-react";
 
 const content = {
   fr: {
@@ -64,7 +65,7 @@ const content = {
     achievementsLabel: "Key Achievements",
     issuedLabel: "Issued",
     idLabel: "ID",
-    credentialLabel: "View credential",
+    credentialLabel: "View diploma",
     statusLabels: { completed: "Completed", "in-progress": "In Progress" },
     certifications: [
        {
@@ -165,19 +166,22 @@ export default function Certifications() {
                       </span>
                     </div>
                     <p className="mt-1 text-sm text-[var(--secondary)]">{cert.issuer}</p>
-                    <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[var(--muted)]">
-                  <span>{t.issuedLabel} : {cert.date}</span>
+                   <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[var(--muted)]">
+                    <span>{t.issuedLabel} : {cert.date}</span>
                     {cert.id && <span>{t.idLabel} : {cert.id}</span>}
-                    {cert.url && (
-                      <a
-                        href={cert.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-medium text-[var(--primary)] hover:underline"
-                      >
-                        {t.credentialLabel} ↗
-                      </a>
-                    )}
+                  </div>
+
+                  {cert.url && (
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/5 px-3 py-1.5 text-xs font-semibold text-[var(--primary)] transition hover:bg-[var(--primary)] hover:text-white"
+                    >
+                      <Eye size={13} />
+                      {t.credentialLabel}
+                    </a>
+                  )}
                   </div>
                   </div>
                 </motion.div>
