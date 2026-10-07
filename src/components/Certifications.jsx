@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Award, BadgeCheck } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
 import { Award, BadgeCheck, Eye } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const content = {
   fr: {
@@ -17,7 +16,7 @@ const content = {
     credentialLabel: "Voir le diplôme",
     statusLabels: { completed: "Terminée", "in-progress": "En cours" },
     certifications: [
-         {
+      {
         title: "System and Network Security",
         issuer: "IBM",
         date: "26 septembre 2026",
@@ -68,18 +67,18 @@ const content = {
     credentialLabel: "View diploma",
     statusLabels: { completed: "Completed", "in-progress": "In Progress" },
     certifications: [
-       {
+      {
         title: "System and Network Security",
         issuer: "IBM",
-        date: "26 septembre 2026",
+        date: "September 26, 2026",
         status: "completed",
         image: "/images/certifications/ibm.jpg",
         url: "https://www.credly.com/badges/0cac84ba-ba5e-40af-9f0f-a94ad2cba8c4",
       },
-         {
+      {
         title: "Vulnerability Management",
         issuer: "IBM",
-        date: "18 septembre 2026",
+        date: "September 18, 2026",
         status: "completed",
         image: "/images/certifications/ibm.jpg",
         url: "https://www.credly.com/badges/07e73ddb-6f30-43a9-8c28-f07d856c977e",
@@ -91,7 +90,7 @@ const content = {
         status: "completed",
         image: "/images/certifications/ibm.jpg",
         url: "https://www.credly.com/badges/40bd1415-8cef-4c11-bfaf-4b0b4cdf8191",
-        },
+      },
       { title: "Endpoint Security", issuer: "Palo Alto Networks", date: "September 2026", id: "C580065", status: "completed", image: "/images/certifications/paloalto.jpg" },
       { title: "Cybersecurity Fundamentals", issuer: "Palo Alto Networks", date: "September 2026", id: "C580064", status: "completed", image: "/images/certifications/paloalto.jpg" },
       { title: "Building LLM Applications with Prompt Engineering", issuer: "NVIDIA", date: "April 2026", id: "v4rq1bLWQO-q2Ymc5WeYfw", status: "completed", image: "/images/certifications/nvidia.jpg" },
@@ -166,23 +165,22 @@ export default function Certifications() {
                       </span>
                     </div>
                     <p className="mt-1 text-sm text-[var(--secondary)]">{cert.issuer}</p>
-                   <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[var(--muted)]">
-                    <span>{t.issuedLabel} : {cert.date}</span>
-                    {cert.id && <span>{t.idLabel} : {cert.id}</span>}
-                  </div>
+                    <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[var(--muted)]">
+                      <span>{t.issuedLabel} : {cert.date}</span>
+                      {cert.id && <span>{t.idLabel} : {cert.id}</span>}
+                    </div>
 
-                  {cert.url && (
-                    <a
-                      href={cert.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/5 px-3 py-1.5 text-xs font-semibold text-[var(--primary)] transition hover:bg-[var(--primary)] hover:text-white"
-                    >
-                      <Eye size={13} />
-                      {t.credentialLabel}
-                    </a>
-                  )}
-                  </div>
+                    {cert.url && (
+                      <a
+                        href={cert.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/5 px-3 py-1.5 text-xs font-semibold text-[var(--primary)] transition hover:bg-[var(--primary)] hover:text-white"
+                      >
+                        <Eye size={13} />
+                        {t.credentialLabel}
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               ))}

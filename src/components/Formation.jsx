@@ -3,17 +3,20 @@
 import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { Eye } from "lucide-react";
 
 const content = {
   fr: {
     eyebrow: "Parcours académique",
     title: "Formations",
+    diplomaLabel: "Consulter le diplôme",
     formations: [
       {
     degree: "MSc Cybersecurity, Cloud, Systems & Networks",
      mention: "Mention : Très bien",
     school: "ÉSTIAM — École Supérieure des Technologies de l'Information Appliquées aux Métiers, Paris, France",
     period: "Sept 2024 - Juillet 2026",
+    url: "/documents/diplomes/msc-estiam.pdf",
     details: [
     "Cursus : MSc Cybersecurity, Cloud, Systems & Networks cursus Digital Media.",
     "Titre délivré le 20/08/2026, conformément au procès-verbal du jury de certification professionnelle du 04/08/2026.",
@@ -24,6 +27,7 @@ const content = {
         mention: "Mention : Très bien",
         school: "Ecole Supérieure de Génie Informatique et de Technologie (ESGITECH), Tunis, Tunisie",
         period: "Sept 2024 - Juillet 2026",
+        url: "/documents/diplomes/master-esgitech.pdf",
         details: [
           "Spécialisation : Sécurité des Systèmes d'Information, Cryptographie, Gestion des risques.",
           "Projet de fin d'études : Intégration de l'IA dans un SIEM pour la détection avancée des cybermenaces (SFM Technologies).",
@@ -35,6 +39,7 @@ const content = {
         mention: "Mention : Bien",
         school: "Université de Bangui, Bangui, Centrafrique",
         period: "Janvier 2021 - Octobre 2023",
+        url: "/documents/diplomes/licence-teleinformatique.pdf",
         details: [
           "Spécialisation : Téléinformatique (Réseau et Télécommunication).",
           "Projet de fin d'études : Etude du déploiement d'un réseau optique à Ngaragba en utilisant du FTTH.",
@@ -53,12 +58,14 @@ const content = {
   en: {
     eyebrow: "Academic Background",
     title: "Education",
+    diplomaLabel: "View diploma",
     formations: [
       {
     degree: "MSc Cybersecurity, Cloud, Systems & Networks",
      mention:  "Honors: Highest Distinction",
     school: "ÉSTIAM — École Supérieure des Technologies de l'Information Appliquées aux Métiers, Paris, France",
     period: "Sept 2024 - Juillet 2026",
+    url: "/documents/diplomes/msc-estiam.pdf",
     details: [
     "Program : MSc Cybersecurity, Cloud, Systems & Networks cursus Digital Media.",
     "Degree awarded on 08/20/2026, in accordance with the certification jury's minutes dated 08/04/2026.",
@@ -69,6 +76,7 @@ const content = {
         mention: "Honors: Highest Distinction",
         school: "Ecole Supérieure de Génie Informatique et de Technologie (ESGITECH), Tunis, Tunisia",
         period: "Sept 2024 - July 2026",
+        url: "/documents/diplomes/master-esgitech.pdf",
         details: [
           "Specialization: Information Systems Security, Cryptography, Risk Management.",
           "Capstone project: AI integration into a SIEM for advanced cyberthreat detection (SFM Technologies).",
@@ -80,6 +88,7 @@ const content = {
         mention: "Honors: Good",
         school: "University of Bangui, Bangui, Central African Republic",
         period: "January 2021 - October 2023",
+        url: "/documents/diplomes/licence-teleinformatique.pdf",
         details: [
           "Specialization: Teleinformatics (Networking and Telecommunications).",
           "Capstone project: Study of an optical fiber network deployment in Ngaragba using FTTH.",
@@ -130,10 +139,22 @@ export default function Formation() {
                 {f.school} · {f.period}
               </p>
               {f.mention && (
-                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
-                  {f.mention}
-                </p>
-              )}
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
+                {f.mention}
+              </p>
+                )}
+
+            {f.url && (
+              <a
+                href={f.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/5 px-3 py-1.5 text-xs font-semibold text-[var(--primary)] transition hover:bg-[var(--primary)] hover:text-white"
+              >
+                <Eye size={13} />
+                {t.diplomaLabel}
+              </a>
+                )}
 
               {f.details.length > 0 && (
                 <ul className="mt-4 space-y-2">

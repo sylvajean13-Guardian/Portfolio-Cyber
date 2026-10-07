@@ -2,12 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download, Sun, Moon } from "lucide-react";
+import { Menu, X, Download, Sun, Moon, Eye } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { siteConfig, socials } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
-import { Menu, X, Download, Sun, Moon, Eye } from "lucide-react";
 
 const navLinksContent = {
   fr: [
