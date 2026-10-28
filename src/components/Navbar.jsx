@@ -56,7 +56,7 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-          <a href="#home" className="text-lg font-bold tracking-tight text-[var(--text)]">
+          <a href="#home" className="font-heading text-lg font-bold tracking-tight text-[var(--text)]">
             {siteConfig.name}
             <span className="text-[var(--primary)]">.</span>
           </a>

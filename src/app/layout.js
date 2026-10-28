@@ -1,6 +1,25 @@
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { Space_Grotesk, DM_Sans, JetBrains_Mono } from "next/font/google";
+
+const fontHeading = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const fontBody = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const fontMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono-custom",
+  display: "swap",
+});
 export const metadata = {
   metadataBase: new URL("https://portfolio-cyber-gamma.vercel.app/"), // ⚠️ remplace par ton vrai domaine une fois déployé
   title: {
@@ -58,7 +77,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
+    <html
+        lang="fr"
+        className={`${fontHeading.variable} ${fontBody.variable} ${fontMono.variable}`}
+      >
       <body>
         <ThemeProvider>
           <LanguageProvider>{children}</LanguageProvider>

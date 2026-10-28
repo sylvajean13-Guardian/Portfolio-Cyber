@@ -55,7 +55,7 @@ export default function ImpactMetrics() {
             delay={i * 0.08}
             className="card-3d rounded-2xl border border-[var(--border-color)] bg-[var(--surface)] p-5 text-center"
           >
-            <p className="text-3xl font-bold text-[var(--secondary)] sm:text-4xl">{m.value}</p>
+            <p className="font-heading text-3xl font-bold text-[var(--secondary)] sm:text-4xl">{m.value}</p>
             <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-[var(--text)]">
               {m.label}
             </p>

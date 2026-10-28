@@ -6,7 +6,6 @@ import { socials } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 import TiltCard from "@/components/TiltCard";
-import Hero3D from "@/components/Hero3D";
 import { ArrowRight, Eye, ShieldAlert, CheckCircle2 } from "lucide-react";
 
 const content = {
@@ -78,7 +77,6 @@ export default function Hero() {
       <div className="absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-[var(--primary)]/10 blur-[120px]" />
       <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[var(--secondary)]/10 blur-[140px]" />
       <div className="absolute right-1/3 top-0 h-56 w-56 rounded-full bg-[var(--accent-amber)]/10 blur-[100px]" />
-      <Hero3D />
       <div className="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
         {/* LEFT */}
         <motion.div
