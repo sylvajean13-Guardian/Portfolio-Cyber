@@ -5,6 +5,8 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { socials } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
+import TiltCard from "@/components/TiltCard";
+import Hero3D from "@/components/Hero3D";
 import { ArrowRight, Eye, ShieldAlert, CheckCircle2 } from "lucide-react";
 
 const content = {
@@ -76,7 +78,7 @@ export default function Hero() {
       <div className="absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-[var(--primary)]/10 blur-[120px]" />
       <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[var(--secondary)]/10 blur-[140px]" />
       <div className="absolute right-1/3 top-0 h-56 w-56 rounded-full bg-[var(--accent-amber)]/10 blur-[100px]" />
-
+      <Hero3D />
       <div className="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
         {/* LEFT */}
         <motion.div
@@ -153,13 +155,8 @@ export default function Hero() {
         </motion.div>
 
         {/* RIGHT — Alert Triage Panel */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="hidden lg:block"
-        >
-          <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface)]/70 p-6 shadow-2xl backdrop-blur-xl">
+        <TiltCard delay={0.2} max={6} className="hidden lg:block">
+          <div className="card-3d rounded-2xl border border-[var(--border-color)] bg-[var(--surface)]/70 p-6 shadow-2xl backdrop-blur-xl">
             <div className="mb-5 flex items-center justify-between border-b border-[var(--border-color)] pb-4">
               <div className="flex items-center gap-2 text-[var(--text)]">
                 <ShieldAlert size={18} className="text-[var(--critical)]" />
@@ -238,7 +235,7 @@ export default function Hero() {
 
             <p className="mt-5 text-[10px] italic text-[var(--muted)]">{t.disclaimer}</p>
           </div>
-        </motion.div>
+        </TiltCard>
       </div>
     </section>
   );

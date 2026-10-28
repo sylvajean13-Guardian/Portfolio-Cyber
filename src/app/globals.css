@@ -3,33 +3,41 @@
 :root {
   color-scheme: light;
 
+  /* Clair — bleu marine / blanc / ambre */
   --background: #ffffff;
-  --surface: #f8fafc;
-  --primary: #2563eb;
-  --secondary:#0fa3e3;
+  --surface: #f4f7fc;
+  --primary: #1e3a8a;
+  --secondary: #b45309;
   --accent-amber: #f59e0b;
-  --text: #0f172a;
-  --muted: #64748b;
-  --border-color: #e2e8f0;
+  --neon: #f59e0b;
+  --text: #0b1b3a;
+  --muted: #5b6b8c;
+  --border-color: #dbe3f0;
   --success: #16a34a;
   --warning: #f59e0b;
   --critical: #dc2626;
+  --shadow-3d: 0 24px 40px -22px color-mix(in srgb, var(--neon) 65%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--primary) 35%, transparent);
 }
 
 .dark {
   color-scheme: dark;
 
-  --background: #0b1120;
-  --surface: #111827;
-  --primary: #3b82f6;
-  --secondary:#0fa3e3; 
-  --accent-amber: #fbbf24;
-  --text: #f1f5f9;
-  --muted: #94a3b8;
-  --border-color: #1f2937;
+  /* Sombre — noir profond / bleu électrique / rouge néon */
+  --background: #04050a;
+  --surface: #0b0e16;
+  --primary: #2f6dff;
+  --secondary: #6ea8ff;
+  --accent-amber: #ffb020;
+  --neon: #ff2a4d;
+  --text: #f1f5ff;
+  --muted: #8b95ab;
+  --border-color: #1a2133;
   --success: #22c55e;
-  --warning: #fbbf24;
-  --critical: #f87171;
+  --warning: #ffb020;
+  --critical: #ff4d6a;
+  --shadow-3d: 0 24px 44px -20px color-mix(in srgb, var(--neon) 70%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--primary) 55%, transparent);
 }
 
 html {
@@ -45,6 +53,94 @@ body {
 }
 
 ::selection {
-  background: rgba(37, 99, 235, 0.15);
+  background: color-mix(in srgb, var(--primary) 25%, transparent);
   color: var(--text);
+}
+
+/* ---------- Cartes 3D ---------- */
+.card-3d {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+.card-3d:hover {
+  box-shadow: var(--shadow-3d);
+  border-color: color-mix(in srgb, var(--primary) 60%, transparent);
+}
+
+/* ---------- Scène 3D du Hero ---------- */
+.scene-3d {
+  perspective: 1000px;
+  animation: float3d 7s ease-in-out infinite;
+}
+.scene-delay {
+  animation-delay: -3s;
+}
+
+.cube {
+  --size: 110px;
+  --half: calc(var(--size) / 2);
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  transform-style: preserve-3d;
+  animation: spin3d 18s linear infinite;
+}
+.cube-sm {
+  --size: 70px;
+}
+.cube-reverse {
+  animation-direction: reverse;
+  animation-duration: 24s;
+}
+
+.cube-face {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--primary);
+  background: color-mix(in srgb, var(--primary) 6%, transparent);
+  box-shadow: inset 0 0 22px color-mix(in srgb, var(--neon) 28%, transparent),
+    0 0 12px color-mix(in srgb, var(--primary) 30%, transparent);
+}
+.cube-front  { transform: translateZ(var(--half)); }
+.cube-back   { transform: rotateY(180deg) translateZ(var(--half)); }
+.cube-right  { transform: rotateY(90deg) translateZ(var(--half)); }
+.cube-left   { transform: rotateY(-90deg) translateZ(var(--half)); }
+.cube-top    { transform: rotateX(90deg) translateZ(var(--half)); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(var(--half)); }
+
+.grid-floor {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  bottom: -10%;
+  height: 60%;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--primary) 35%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--primary) 35%, transparent) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(500px) rotateX(62deg);
+  transform-origin: bottom;
+  -webkit-mask-image: linear-gradient(to top, black 10%, transparent 85%);
+  mask-image: linear-gradient(to top, black 10%, transparent 85%);
+  opacity: 0.55;
+  animation: gridMove 6s linear infinite;
+}
+
+@keyframes spin3d {
+  from { transform: rotateX(-20deg) rotateY(0deg); }
+  to   { transform: rotateX(-20deg) rotateY(360deg); }
+}
+@keyframes float3d {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-18px); }
+}
+@keyframes gridMove {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 0 60px, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cube, .scene-3d, .grid-floor {
+    animation: none;
+  }
 }

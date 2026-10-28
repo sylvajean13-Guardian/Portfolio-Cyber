@@ -5,6 +5,7 @@ import { Bot, Search, HardDrive } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { socials } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
+import TiltCard from "@/components/TiltCard";
 
 const content = {
   fr: {
@@ -109,13 +110,10 @@ export default function Projects() {
           {t.projects.map((project, index) => {
             const Icon = project.icon;
             return (
-              <motion.div
+              <TiltCard
                 key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex flex-col rounded-2xl border border-[var(--border-color)] bg-[var(--surface)]/40 p-7 transition duration-300 hover:-translate-y-2 hover:border-[var(--primary)]/40"
+                delay={index * 0.1}
+                className="card-3d flex flex-col rounded-2xl border border-[var(--border-color)] bg-[var(--surface)] p-7"
               >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--secondary)]">
                   <Icon size={24} />
@@ -178,7 +176,7 @@ export default function Projects() {
                   <FaGithub size={16} />
                   {t.githubLabel}
                 </a>
-              </motion.div>
+              </TiltCard>
             );
           })}
         </div>

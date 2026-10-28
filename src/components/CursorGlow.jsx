@@ -16,7 +16,7 @@ export default function CursorGlow() {
     <div
       className="pointer-events-none fixed inset-0 z-0 hidden lg:block"
       style={{
-        background: `radial-gradient(600px circle at ${pos.x}px ${pos.y}px, rgba(37,99,235,0.05), transparent 40%)`,
+        background: `radial-gradient(600px circle at ${pos.x}px ${pos.y}px, color-mix(in srgb, var(--neon) 9%, transparent), transparent 40%)`,
       }}
     />
   );

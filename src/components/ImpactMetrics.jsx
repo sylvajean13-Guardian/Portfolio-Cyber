@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import TiltCard from "@/components/TiltCard";
 
 const content = {
   fr: {
@@ -49,21 +50,18 @@ export default function ImpactMetrics() {
 
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
           {t.metrics.map((m, i) => (
-            <motion.div
-              key={m.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface)]/50 p-5 text-center"
-            >
-              <p className="text-3xl font-bold text-[var(--secondary)] sm:text-4xl">{m.value}</p>
-              <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-[var(--text)]">
-                {m.label}
-              </p>
-              <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{m.description}</p>
-            </motion.div>
-          ))}
+          <TiltCard
+            key={m.label}
+            delay={i * 0.08}
+            className="card-3d rounded-2xl border border-[var(--border-color)] bg-[var(--surface)] p-5 text-center"
+          >
+            <p className="text-3xl font-bold text-[var(--secondary)] sm:text-4xl">{m.value}</p>
+            <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-[var(--text)]">
+              {m.label}
+            </p>
+            <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{m.description}</p>
+          </TiltCard>
+        ))}
         </div>
 
         <p className="mx-auto mt-8 max-w-2xl text-center text-xs italic text-[var(--muted)]">

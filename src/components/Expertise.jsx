@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import TiltCard from "@/components/TiltCard";
 import {
   ShieldCheck,
   Radar,
@@ -60,24 +61,21 @@ export default function Expertise() {
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {t.areas.map((area, index) => {
-            const Icon = area.icon;
-            return (
-              <motion.div
-                key={area.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="group rounded-2xl border border-[var(--border-color)] bg-[var(--background)]/60 p-7 transition duration-300 hover:-translate-y-2 hover:border-[var(--primary)]/40"
-              >
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--secondary)] transition group-hover:bg-[var(--primary)] group-hover:text-white">
-                  <Icon size={24} />
-                </div>
-                <h3 className="text-lg font-semibold text-[var(--text)]">{area.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{area.description}</p>
-              </motion.div>
-            );
-          })}
+          const Icon = area.icon;
+          return (
+            <TiltCard
+              key={area.title}
+              delay={index * 0.08}
+              className="card-3d group rounded-2xl border border-[var(--border-color)] bg-[var(--background)] p-7"
+            >
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--secondary)] transition group-hover:bg-[var(--primary)] group-hover:text-white">
+                <Icon size={24} />
+              </div>
+              <h3 className="text-lg font-semibold text-[var(--text)]">{area.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{area.description}</p>
+            </TiltCard>
+          );
+        })}
         </div>
       </div>
     </section>
