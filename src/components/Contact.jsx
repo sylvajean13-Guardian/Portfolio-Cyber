@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mail, Eye, Download, Phone, MapPin } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { socials } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -22,6 +22,7 @@ const content = {
     githubValue: "Voir mon profil",
     cvButton: "Consulter mon CV",
     reportButton: "Télécharger le mémoire complet",
+    whatsappValue: "Discutons sur WhatsApp",
   },
   en: {
     eyebrow: "Contact",
@@ -38,6 +39,7 @@ const content = {
     githubValue: "View my profile",
     cvButton: "View my CV",
     reportButton: "Download the full thesis",
+    whatsappValue: "Chat on WhatsApp",
   },
 };
 
@@ -47,9 +49,10 @@ export default function Contact() {
 
   const contactLinks = [
     { icon: Mail, label: t.emailLabel, value: socials.email, href: `mailto:${socials.email}` },
-    { icon: Phone, label: t.phoneLabel, value: "+216 50 64 04 86", href: "tel:+21650640486" },
+    { icon: Phone, label: t.phoneLabel, value: "+225 07 68 07 46 10", href: "tel:+2250768074610" },
     { icon: FaLinkedin, label: t.linkedinLabel, value: t.linkedinValue, href: socials.linkedin },
     { icon: FaGithub, label: t.githubLabel, value: t.githubValue, href: socials.github },
+    { icon: FaWhatsapp, label: "WhatsApp", value: t.whatsappValue, href: socials.whatsapp },
   ];
 
   return (
@@ -70,7 +73,7 @@ export default function Contact() {
             {t.location}
           </div>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {contactLinks.map((link, index) => {
             const Icon = link.icon;
             return (

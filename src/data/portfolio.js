@@ -20,6 +20,7 @@ export const socials = {
   email: "sylvajean13@gmail.com",
   linkedin: "https://www.linkedin.com/in/jean-daniel-sylva-ossibouyen-4534b0332/",
   github: "https://github.com/sylvajean13-Guardian",
+    whatsapp: "https://wa.me/2250768074610",
   cv: {
     fr: "/cv/Daniel-Sylva-CV-FR.pdf",
     en: "/cv/Daniel-Sylva-CV-EN.pdf",
